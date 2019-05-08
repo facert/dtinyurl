@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+    <head>
+        <meta charset="utf-8">
+        <meta name="X-UA-Compatible" content="IE=edge">
+        <title>Dtinyurl - Dcentralised url shortening service base on ipfs</title>
+        <meta name="keywords" content="tiny url, ipfs, dcentralised">
+        <meta name="description" content="Decentralized url shortening service base on ipfs">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" href="/static/icon.png">
+        <link rel="stylesheet" href="/static/css/daily.css">
+        <link href="/static/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    </head>
+
+    <body>
+        <div class="wrap">
+            <header>
+                <ul class="nav nav-list">
+                    <li class="nav-list-item">
+                        <a href="https://gist.github.com/facert/fa39f0e094a2dd5c99f108cb975dde5b" class="nav-list-link {% block api_active %}{% endblock %}" target="_blank">Api</a>
+                    </li>
+                    <li class="nav-list-item">
+                        <a href="https://github.com/facert/dtiny-plugins" class="nav-list-link {% block plugin_active %}{% endblock %}" target="_blank">Plugin</a>
+                    </li>
+                </ul>
+            </header>
+            {% block content %}
+            {% endblock %}
+        </div>
+
+    </body>
+    <footer>
+    <div class="copyright">
+        <p><a href="https://www.bdaily.club" target="_blank">© 2018 区块链日报</a>
+            <span style="margin-left: 10px;">
+                <a href="https://twitter.com/bchain_daily" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>&nbsp;
+                <a href="https://www.bdaily.club/rss"><i class="fa fa-rss fa-1x"></i></a>&nbsp;
+                <a href="https://weibo.com/u/6453120687"><i class="fa fa-weibo fa-1x"></i></a>
+            </span>
+            <span style="margin-left: 10px;">
+                <a href="http://www.miitbeian.gov.cn" rel="nofollow" target="_blank">京ICP备18014740号-1</a>
+            </span>
+        </p>
+    </div>
+    </footer>
+</html>
+
+
+<script>
+</script>
+
+{% block script %}
+{% endblock %}

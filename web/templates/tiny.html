@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <main class="container">
+        <div style="text-align: center">
+            <img src="/static/logo1.png" alt="logo" style="height: 100px;">
+        </div>
+        <h4 style="text-align: center;">Dcentralised url shortening service base on ipfs</h4>
+        <input class="tiny-url-input" maxlength="2048" name="q" type="text" placeholder="https://example.com" aria-autocomplete="both" aria-haspopup="false" autocapitalize="off" autocomplete="off" autocorrect="off" role="combobox" spellcheck="false" title="Search" value="" aria-label="Search">
+        <p style="text-align: center">
+            <input value="Generate" aria-label="Google Search" name="btnK" type="submit" class="tiny-url-submit">
+        </p>
+
+        <div class="tiny-url-list"></div>
+    </main>
+{% endblock %}
+
+{% block script %}
+    <script src="/static/js/jquery-3.3.1.min.js"></script>
+    <script>
+        $(".tiny-url-submit").click(function () {
+            var raw_url = $('.tiny-url-input').val();
+
+            $.ajax({
+                type: "POST",
+                url: "/",
+                data: JSON.stringify({url: raw_url}),
+                success: function(data) {
+                    if (data["msg"] == "ok") {
+                        var html = "<ul><h4>Tiny URL List: </h4>";
+                        html = html.concat("<li>"+data["data"]["tiny_url"]+"&nbsp;<a href="+data["data"]["tiny_url"]+' target="_blank"><i class="fa fa-external-link fa-1x"></i></a></li>');
+                        var hash_urls = data["data"]["hash_urls"];
+                        for (var i=0; i < hash_urls.length; i++) {
+                            html = html.concat("<li>"+hash_urls[i]+"&nbsp;<a href="+hash_urls[i]+' target="_blank"><i class="fa fa-external-link fa-1x"></i></a></li>')
+                        }
+
+                        $(".tiny-url-list").html(html);
+                    } else {
+                        alert(data["msg"]);
+                    }
+                },
+                dataType: "json",
+                contentType: "application/json"
+            })
+
+        })
+    </script>
+{% endblock %}

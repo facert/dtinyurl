@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block api_active %}active{% endblock %}
+
+{% block content %}
+<main class="container">
+    <div class="post">
+        <article class="post-block">
+            <div class="post-content"></div>
+            <div class="post-content-raw" style="display: none"></div>
+        </article>
+    </div>
+</main>
+{% endblock %}
+
+{% block script %}
+<script src="/static/js/jquery-3.3.1.min.js"></script>
+<script src="/static/js/showdown.min.js"></script>
+
+<script>
+    var content = '1. Create new tiny url \
+``` \
+curl -i -X POST -H "Content-Type:application/json" -d '{"url": "http://example.com"}' 'http://t.bdaily.club' \
+
+Response:
+{
+    "msg": "ok",
+    "data": {
+        "tiny_url": "http://t.bdaily.club/ssddz",
+        "hash_urls": ["http://gateway.bdaily.club/ipfs/QmVjqCLtMAds8mu24kZoMiEgYCSVwf4PZ7EATpVHXhTwHz", "https://gateway.ipfs.io/ipfs/QmVjqCLtMAds8mu24kZoMiEgYCSVwf4PZ7EATpVHXhTwHz", "https://cloudflare-ipfs.com/ipfs/QmVjqCLtMAds8mu24kZoMiEgYCSVwf4PZ7EATpVHXhTwHz"]
+    }
+}
+```'
+    var converter = new showdown.Converter(),
+    html = converter.makeHtml($(".post-content-raw").text());
+    $(".post-content").html(html)
+</script>
+{% endblock %}
