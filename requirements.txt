@@ -1,6 +1,6 @@
 certifi==2019.3.9
 chardet==3.0.4
-Django==2.1.4
+Django==2.2.10
 idna==2.8
 ipfsapi==0.4.3
 pytz==2019.1
