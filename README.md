@@ -1,5 +1,5 @@
 # dtinyurl
-Dcentralised url shortening service base on ipfs
+Dcentralized url shortening service base on ipfs
 
 
 ### Demo
