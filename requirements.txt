@@ -2,7 +2,7 @@ certifi==2019.3.9
 chardet==3.0.4
 Django==2.1.4
 idna==2.8
-ipfsapi==0.4.3
+ipfshttpclient==0.7.0a1
 pytz==2019.1
 requests==2.21.0
 short-url==1.2.2

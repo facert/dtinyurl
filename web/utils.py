@@ -1,11 +1,12 @@
 import re
 import os
 import hashlib
-import ipfsapi
+#import ipfsapi
+import ipfshttpclient
 import short_url
 
 
-ipfs_api = ipfsapi.connect('127.0.0.1', 5001)
+ipfs_api = ipfshttpclient.connect("/ip4/127.0.0.1/tcp/5001/http")
 
 
 GATEWAY_DOMAIN = "http://gateway.bdaily.club"
